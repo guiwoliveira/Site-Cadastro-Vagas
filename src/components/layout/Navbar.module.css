@@ -8,6 +8,10 @@
     padding-right: 4em;
 }
 
+.navbar img {
+    height: 50px;
+}
+
 .sub_navbar {
     display: flex;
     justify-content: center;
@@ -41,7 +45,7 @@
 }
 
 .logout a {
-    color: #000;
+    color: #161616;
     text-decoration: none;
     font-weight: 400;
     margin-left: 2em 
