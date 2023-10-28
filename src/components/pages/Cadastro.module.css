@@ -13,6 +13,10 @@
     padding: 1em;
 }
 
+.form {
+    width: 600px;
+}
+
 .form div {
     display: flex;
     flex-direction: column;
@@ -27,7 +31,6 @@
 
 .form input, textarea {
     height: 4em;
-    width: 500px;
     padding: 15px;
     border-radius: 7px;
     border: 1px #2f2f2f solid;
@@ -52,4 +55,16 @@
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+@media (max-width: 600px) {
+    .form {
+        width: 450px;
+    }
+}
+
+@media (max-width: 500px) {
+    .form {
+        width: 350px;
+    }
 }

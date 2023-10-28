@@ -1,6 +1,9 @@
+import style from "./VerVagas.module.css"
+import Tabela from '../layout/Tabela';
+
 function VerVagas() {
     return(
-        <h1>Vagas cadastradas</h1>
+        <Tabela />
     )
 }
 
