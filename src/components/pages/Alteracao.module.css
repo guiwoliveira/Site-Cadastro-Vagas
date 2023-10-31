@@ -1,0 +1,107 @@
+/** Geral -------------------------------------------------------*/
+.alteracao_container {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1em 0;
+}
+
+.alteracao_container h1 {
+    color: #2f2f2f;
+    padding: 1em;
+}
+
+/** Formulario -------------------------------------------------------*/
+.form {
+    width: 600px;
+}
+
+.div_form{
+    display: flex;
+    flex-direction: column;
+    padding-bottom: 1.5em;
+}
+
+.form label {
+    color: #2f2f2f;
+    font-weight: 600;
+    padding-bottom: 1ch;
+}
+
+.form input, textarea {
+    height: 4em;
+    padding: 15px;
+    border-radius: 7px;
+    border: 1px #2f2f2f solid;
+}
+
+.form input:focus, textarea:focus{
+    outline: 2px solid #009DFF;
+}
+
+.form textarea {
+    width: 100%;
+    padding: 15px;
+    box-sizing: border-box;
+    resize: vertical;
+    max-height: 200px;
+    min-height: 4em;
+}
+
+/** Botão -------------------------------------------------------*/
+.form_button {
+    width: 100%;
+    padding-bottom: 3em;
+    display: flex;
+    justify-content: center;
+}
+
+.btn_editar {
+    width: 150px;
+    background-color: #009DFF;
+    color: #fff;
+    padding: 1em;
+    margin: 0 0.5em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+.btn_cancelar {
+    width: 150px;
+    background-color: #595959;
+    color: #fff;
+    padding: 1em;
+    margin: 0 0.5em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.2s;
+    border-radius: 10px;
+}
+
+.btn_editar:hover {
+    background-color: #31F787;
+}
+
+.btn_cancelar:hover {
+    opacity: 70%;
+}
+
+@media (max-width: 600px) {
+    .form {
+        width: 450px;
+    }
+}
+
+@media (max-width: 500px) {
+    .form {
+        width: 350px;
+    }
+}

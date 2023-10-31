@@ -1,0 +1,17 @@
+.btn {
+    width: 200px;
+    background-color: #009DFF;
+    color: #fff;
+    padding: 1em;
+    margin: 0 1em;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    font-weight: bold;
+    transition: 0.5s;
+    border-radius: 10px;
+}
+
+.btn:hover {
+    background-color: #31F787;
+}
