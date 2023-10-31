@@ -1,42 +1,60 @@
-import LinkButton from '../layout/LinkButton'
-
-import styles from './Cadastro.module.css'
+import { useEffect, useState } from 'react'
+import Formulario from '../forms/Formulario.js';
 
 function Cadastro() {
-    return(
-        <section className={styles.cadastro_container}>
-            <h1>Cadastre uma vaga</h1>
 
-            <form className={styles.form}>
-                <div>
-                    <label>Tipo de vaga</label>
-                    <input type='text' name='tipo' placeholder='ex.: Júnior, estágio, senior...' />
-                </div>         
-                <div>
-                    <label>Descrição</label>
-                    <textarea type='text' name='descricao' placeholder='ex.: Nós gostariamos...' />
-                </div>         
-                <div>
-                    <label>Cargo</label>
-                    <input type='text' name='cargo' placeholder='ex.: Programador, auxiliar...' />
-                </div>         
-                <div>
-                    <label>Local</label>
-                    <input type='text' name='local' placeholder='ex.: R. Nome, 123' />
-                </div>         
-                <div>
-                    <label>Turno</label>
-                    <input type='text' name='turno' placeholder='ex.: Diurno, noturno...' />
-                </div>         
-                <div>
-                    <label>Salário</label>
-                    <input type='number' name='salario' placeholder='ex.: xxxxx,xx' />
-                </div>
-                <div className={styles.form_button}>
-                    <LinkButton to="/vagas" text="Cadastrar" />
-                </div>         
-            </form>
-        </section>              
+    const vaga = {
+        id: 0,
+        nome_empresa: '',
+        tipo_vaga: '',
+        descricao: '',
+        cargo: '',
+        local: '',
+        turno: '',
+        salario: ''
+    }
+
+    const [objVaga, setObjVaga] = useState(vaga);
+
+    //* Obter dados da vaga
+    const aoDigitar = (e) => {
+        setObjVaga({...objVaga, [e.target.name]:e.target.value});
+    }
+
+    const [vagas, setVagas] = useState([]);
+    useEffect(() => {
+        fetch("http://localhost:8080/listar")
+        .then(retorno => retorno.json())
+        .then(retorno_convertido => setVagas(retorno_convertido));
+    }, []);
+
+    const cadastrar = () => {
+        fetch('http://localhost:8080/cadastrar',{
+            method:'post',
+            body: JSON.stringify(objVaga),
+            headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+            }
+        })
+        .then(retorno => retorno.json())
+        .then(retorno_convertido => {
+            if (retorno_convertido.mensagem !== undefined){
+                alert(retorno_convertido.mensagem);
+            }else{
+                setVagas([...vagas, retorno_convertido]);
+                alert('Vaga cadastrada com sucesso!')
+            }
+        })
+    }
+
+    return(
+        <div>
+            <Formulario 
+                eventoTeclado={aoDigitar}
+                cadastrar={cadastrar}
+            /> 
+        </div>              
     )
 }
 

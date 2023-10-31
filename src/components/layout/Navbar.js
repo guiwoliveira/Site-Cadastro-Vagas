@@ -6,7 +6,7 @@ import logo from '../../img/logo_completo.png'
 function NavBar() {
     return (
         <nav>
-            <div class={styles.navbar}>
+            <div className={styles.navbar}>
                 <Link to="/"><img src={logo} alt="vagas" /></Link>
                 <ul className={styles.list}>
                     <li className={styles.logout}>
@@ -15,7 +15,7 @@ function NavBar() {
                 </ul>
             </div>
             
-            <div class={styles.sub_navbar}>
+            <div className={styles.sub_navbar}>
                 <ul className={styles.list}>
                     <li className={styles.item}>
                         <Link to="/">Home</Link>
